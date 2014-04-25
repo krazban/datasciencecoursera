@@ -8,15 +8,20 @@ if (!file.exists("data")){
   dir.create("~/data", showWarnings=F)
 }
 
-url <-"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+file.url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 
-file.name <- basename(url)
+file.name <- basename(file.url)
+
+#cleanup the file name
+file.name <- gsub("%2F","_",
+                  gsub("%20",' ',file.name))
+
+
 samsung.data <- paste('data', file.name,sep='/')
 
 if (!file.exists(samsung.data)){
-  
-  download.file(url, samsung.data, method="curl")
-  
+
+  download.file(file.url, samsung.data, method="curl")  
 }
 
 # Read the column lables
@@ -97,9 +102,9 @@ agg.tidy.ds <- agg.tidy.ds[order(agg.tidy.ds$subject.id, agg.tidy.ds$activity.co
 #tidy up the column names
 #-----------------------
 names(agg.tidy.ds)<- gsub("\\.{2}","\\.", 
-                          gsub('([[:upper:]])', '.\\1',                                    
-                               gsub("-", "\\.",     
-                                    gsub("\\(\\)", "", names(agg.tidy.ds)))))
+                         gsub('([[:upper:]])', '.\\1',                                    
+                              gsub("-", "\\.",     
+                                   gsub("\\(\\)", "", names(agg.tidy.ds)))))
 
 names(agg.tidy.ds) <- tolower(names(agg.tidy.ds))
 nrow(agg.tidy.ds)
