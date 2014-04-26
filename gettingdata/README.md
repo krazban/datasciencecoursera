@@ -11,17 +11,17 @@ on a Windows machine.
 
 Only the base packages in R required to run this script. 
 
-**Data input requirement** : Following zip file should exist in _data_ directory under current working directory or, presence of internet connection that the file could be downloaded by the script automatically. **Note:** zip file must not be decompressed. 
+**Data input requirement** : As instructed by the assignment _"The code should have a file run_analysis.R
+in the main directory that can be run as long as the Samsung data is in your working directory"_. The assumption is that following zip file should exist in _data_ directory under current working directory or, presence of internet connection that the file could be downloaded by the script automatically.
+
+**Note:** zip file must not be decompressed. 
 
 
 ```
 getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
 ```
-This script will check for the existance of the _data_ directory under working directory and in the case of non-existance it will create one.
-
-The resultuing tidy dataset will be written in the _data_ directory under the name of 
-__samsungtidyds.txt__ .
+This script will check for the existance of the _data_ directory under working directory and in the case of non-existance it will create one. The resultuing tidy dataset will be written in the _data_ directory under the name of __samsungtidyds.txt__ .
 
 Notes
 --------
