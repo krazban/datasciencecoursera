@@ -1,4 +1,4 @@
-Aggregated samsung tidy dataset CodeBook
+CodeBook: Aggregated samsung tidy dataset
 ========================================================
 
 dataset name: samsungtidyds.txt

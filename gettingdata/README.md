@@ -7,10 +7,11 @@ Script name: run_analysis.R
  
 
 This script was created an ran under R version 3.0.2 (2013-09-25)
+on a Windows machine. 
 
 Only the base packages in R required to run this script. 
 
-**Data input requirement** : Following zip file should exist in _data_ directory under current working directory or, presence of internet connection that the file could be downloaded by the script automatically.
+**Data input requirement** : Following zip file should exist in _data_ directory under current working directory or, presence of internet connection that the file could be downloaded by the script automatically. **Note:** zip file must not be decompressed. 
 
 
 ```

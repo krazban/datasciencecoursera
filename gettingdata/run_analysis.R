@@ -1,31 +1,35 @@
 # Final Getting and Cleaning Data Project
 # Author: Kourosh Razban
 # File Name: run_analysis.R 
+# Input File:"getdata_projectfiles_UCI HAR Dataset.zip"
 # ========================================================
 # File download
 
 if (!file.exists("data")){
-  dir.create("~/data", showWarnings=F)
+  dir.create("data", showWarnings=F)
 }
 
 file.url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 
 file.name <- basename(file.url)
 
-#cleanup the file name
+#clean up the data file name
 file.name <- gsub("%2F","_",
                   gsub("%20",' ',file.name))
 
 
 samsung.data <- paste('data', file.name,sep='/')
 
+#check before download.
 if (!file.exists(samsung.data)){
 
-  download.file(file.url, samsung.data, method="curl")  
+  download.file(file.url, samsung.data, method="curl")
+    
 }
 
-# Read the column lables
-#-----------------------
+
+# Read the column and activity lables
+#-----------------------------------
 
 features <- read.table(unz(samsung.data, "UCI HAR Dataset/features.txt"))
 
@@ -41,7 +45,7 @@ x.test.dt <- read.table(unz(samsung.data, "UCI HAR Dataset/test/X_test.txt"))
 
 y.test.dt <- read.table(unz(samsung.data, "UCI HAR Dataset/test/y_test.txt"))
 
-# find the activtiy name from activity code key.
+# find the activtiy names from activity code keys.
 activities <- tolower(activity.lables[[2]][y.test.dt$V1]) 
 
 test.ds <- cbind(subject.ids, activities, y.test.dt, x.test.dt)
